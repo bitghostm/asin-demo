@@ -1,0 +1,4 @@
+packages/api/dist/*
+packages/api/node_modules/*
+packages/api/debug.log
+
