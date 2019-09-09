@@ -8,12 +8,12 @@ To build and run this app locally you will need a few things:
 # Getting started
 - Install dependencies
 ```
-cd /packages/api/
+cd packages/api/
 npm install
 ```
 
 ```
-cd /packages/viewer/
+cd packages/viewer/
 npm install
 ```
 
@@ -24,14 +24,14 @@ mongod
 
 - Start API server
 ```
-cd /packages/api/
+cd packages/api/
 npm run build
 npm start
 ```
 
 - Start Web App
 ```
-cd /packages/viewer/
+cd packages/viewer/
 npm run build
 npm start
 ```
