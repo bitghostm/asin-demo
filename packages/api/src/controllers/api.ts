@@ -27,6 +27,7 @@ function cleanResult(data: Result): Result {
 enum ResponseStatuses {
   created = 'created',
   updated = 'updated',
+  notFound = 'product not found',
 }
 
 export const insertProduct = async (req: Request, res: Response) => {
@@ -45,7 +46,11 @@ export const insertProduct = async (req: Request, res: Response) => {
         await product.save();
         return res.status(200).send({ status: ResponseStatuses.created, data });
       }
-    });;
+    })
+    .error((err) => {
+      console.log(err);
+      return res.status(400).send({ status: ResponseStatuses.notFound, err});
+    });
 };
 
 export const listProduct = async (req: Request, res: Response) => {

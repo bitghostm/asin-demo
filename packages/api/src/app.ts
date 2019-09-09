@@ -24,7 +24,7 @@ mongoose.connect(mongoUrl, { useNewUrlParser: true, useCreateIndex: true } ).the
 });
 
 // Express configuration
-app.set("port", process.env.PORT || 3000);
+app.set("port", process.env.PORT || 3001);
 app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -32,7 +32,7 @@ app.use(cors({ origin: '*' }));
 
 // app routes
 app.get("/", apiController.listProduct);
-app.get("/product/insert/:asin", apiController.insertProduct);
+app.post("/product/insert/:asin", apiController.insertProduct);
 app.get("/product/list", apiController.listProduct);
 
 export default app;
