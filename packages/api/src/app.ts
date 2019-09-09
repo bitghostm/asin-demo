@@ -1,9 +1,9 @@
 import express from "express";
 import compression from "compression";  // compresses requests
 import bodyParser from "body-parser";
-import lusca from "lusca";
 import mongoose from "mongoose";
 import bluebird from "bluebird";
+import cors from 'cors';
 import { MONGODB_URI } from "./util/secrets";
 
 // Controllers (route handlers)
@@ -28,11 +28,11 @@ app.set("port", process.env.PORT || 3000);
 app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(lusca.xframe("*"));
-app.use(lusca.xssProtection(true));
+app.use(cors({ origin: '*' }));
 
 // app routes
-app.get("/", apiController.getApi);
-app.get("/api", apiController.getApi);
+app.get("/", apiController.listProduct);
+app.get("/product/insert/:asin", apiController.insertProduct);
+app.get("/product/list", apiController.listProduct);
 
 export default app;
