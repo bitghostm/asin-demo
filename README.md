@@ -1,4 +1,5 @@
 # asin-demo
+Scrapping Amazon product info
 
 # Pre-reqs
 To build and run this app locally you will need a few things:
